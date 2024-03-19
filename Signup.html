@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Animated Signup Page</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<section>
+		<div class="leaves">
+			<div class="set">
+				<div><img src="leaf_01.png"></div>
+				<div><img src="leaf_02.png"></div>
+				<div><img src="leaf_03.png"></div>
+				<div><img src="leaf_04.png"></div>
+				<div><img src="leaf_01.png"></div>
+				<div><img src="leaf_02.png"></div>
+				<div><img src="leaf_03.png"></div>
+				<div><img src="leaf_04.png"></div>
+			</div>
+		</div>
+		<img src="bg.jpg" class="bg">
+		<img src="girl.png" class="girl">
+		<img src="trees.png" class="trees">
+		<div class="login">
+			<h2>Sign Up</h2>
+            <form id="signupForm" action="#" onsubmit="return validateForm()"></form>
+			<div class="inputBox">
+		
+				<input type="text" placeholder="Username" required
+			</div>
+			<div class="inputBox">
+				<input type="email" placeholder="Email" required
+			</div>
+			<div class="inputBox">
+				<input type="password" placeholder="Password" required
+			</div>
+			<div class="inputBox">
+				<input type="password" placeholder="Confirm Password" required
+			</div>
+			<div class="inputBox">
+				<input type="submit" value="Sign Up" id="btn">
+			</div>
+			<div class="group">
+				<a href="#">Already Have an Account?</a>
+				<a href="index.html">Login</a>
+			</div>
+		</div>
+    </form>
+	</section>
+
+    <script>
+        function welcomeMessage() {
+            alert("Welcome! Thanks for signing up.");
+        }
+
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (username === "" || email === "" || password === "" || confirmPassword === "") {
+                alert("All fields are required.");
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+
+            return confirm("Are you sure you want to submit this form?");
+        }
+
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+            // Form submission will only occur if validation passes
+            if (!validateForm()) {
+                event.preventDefault(); // Prevent default form submission if validation fails
+            } else {
+                welcomeMessage();
+            }
+        });
+    </script>
+</body>
+</html>
